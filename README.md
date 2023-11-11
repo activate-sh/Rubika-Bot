@@ -1,5 +1,5 @@
 # rubika-bot
-Rubika messenger artificial intelligence robot
+**Rubika messenger artificial intelligence robot**
 
 ## Capabilities
 - ChatGPT
@@ -28,6 +28,3 @@ pip install -r requirements.txt
 - No need to enter Auth
 - This source is not compatible with Python 2
 - It is recommended to use Python 3.10 or higher
-
-# 🌟 Star History
-[![Star History Chart](https://api.star-history.com/svg?repos=pydev-0/rubika-bot&type=Date)](https://star-history.com/#pydev-0/rubika-bot&Date)

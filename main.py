@@ -4,13 +4,15 @@ from requests import get
 from datetime import datetime
 from os import system, uname
 
-admins = []
-
 groups = [
-    "g0DjNjc0eeaec8ae92ee9c9bfbdd3f95"
+    "", # group one
+    "", # group two
+    # and...
 ]
 
 token = "295809:6517005fc9455"
+# personal token to perform translation operations
+# to get your personal token, visit one-api.ir
 
 def clearPage() -> None:
     if uname()[0] == "Linux":

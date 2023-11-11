@@ -25,7 +25,6 @@ clearPage()
 
 def main():
     client = Client(session=".myAccount")  # session for account
-    statrBot(client=client) # send message start bot
     for update in client.on_message(filters=["Channel", "User"]):
         if update.object_guid in groups:
 

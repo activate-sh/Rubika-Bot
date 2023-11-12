@@ -3,7 +3,6 @@
 
 ## Capabilities
 - ChatGPT
-- BratGpt
 - Logo generate
 - Voice generate
 - Font generate
@@ -18,7 +17,7 @@
 ```bash
 git clone git@github.com:pydev-0/rubika-bot.git && cd rubika-bot
 python -m venv .env # Create virtualenv named .env
-source venv/bin/activate
+source .env/bin/activate
 pip install -r requirements.txt
 ```
 4. Enter your guid(s) in the groups list on line 7

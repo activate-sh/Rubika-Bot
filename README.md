@@ -15,9 +15,9 @@
 2. Clone the project `https://github.com/pydev-0/Rubika-Bot`.
 3. Make development environment ready using commands below
 ```bash
-git clone https://github.com/pydev-0/Rubika-Bot.git && cd rubika-bot
-python -m venv .env # Create virtualenv named .env
-source .env/bin/activate
+git clone https://github.com/pydev-0/Rubika-Bot.git && cd Rubika-Bot
+python -m venv venv # Create virtualenv named venv
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 4. Enter your guid(s) in the groups list on line 7

@@ -1,4 +1,4 @@
-.env/
+venv/
 .idea/
 .img.png
 .voice.mp3

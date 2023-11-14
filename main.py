@@ -3,6 +3,7 @@ from random import randint
 from requests import post, get
 from json import dumps
 from os import system, uname
+from langdetect import detect
 
 groups = [
     '', # group one
@@ -96,6 +97,46 @@ def main():
                             message_id=message_id,
                             text='your logo is ready👍'
                                  f'\ncontent:\"{update.text[5:]}\"\nprogrammer: @khode_linux'
+                        )
+                except TimeoutError:
+                    client.send_text(
+                        object_guid=update.object_guid,
+                        text='TimeoutError',
+                        message_id=message_id
+                    )
+
+
+            elif update.text.startswith('img'):
+                message_id = update.message_id
+                try:
+                    if update.text == 'img':
+                        client.send_text(
+                            object_guid=update.object_guid,
+                            text='**please enter a text**',
+                            message_id=message_id)
+                    else:
+                        client.send_text(
+                            object_guid=update.object_guid,
+                            text='**please wait...**',
+                            message_id=message_id
+                        )
+                        if detect(update.text[4:]) == 'fa':
+                            responce = post(f'https://one-api.ir/translate/?token={token}&'
+                                            f'action=google&lang=en&q={update.text[4:]}').json()
+
+                            message = responce['result']
+
+                        request = get(f'https://haji-api.ir/prompts/?text={message}').json()
+                        responce = get(request['result'][randint(0, 19)])
+                        with open('.img.png', 'wb') as file:
+                            file.write(responce.content)
+
+                        client.send_image(
+                            object_guid=update.object_guid,
+                            file='.img.png',
+                            message_id=message_id,
+                            text='your image is ready👍'
+                                 f'\ncontent:\"{message}\"\nprogrammer: @khode_linux'
                         )
                 except TimeoutError:
                     client.send_text(
@@ -265,6 +306,9 @@ def main():
 
 💬 ChatGPT 3.5
 - Example: ``+hello``
+
+🖼💭 Image generation: 
+- Example: ``img text``
 
 🖼💭 Logo generation: 
 - Example: ``logo text``

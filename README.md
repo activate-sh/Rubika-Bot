@@ -4,6 +4,7 @@
 ## Capabilities
 - ChatGPT
 - Logo generate
+- Image generate
 - Voice generate
 - Font generate
 - Translator

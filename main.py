@@ -153,8 +153,15 @@ def main():
                         text='**please wait...**',
                         message_id=message_id
                     )
+                    if 'man' in update.text:
+                        voice_mod = 'man'
+                        message = update.text[6:9]
+                    elif 'woman' in update.text:
+                        voice_mod = 'women'
+                        message = update.text[6:11]
+
                     request = post('https://pyrubi.b80.xyz/'
-                               f'voice.php?text={update.text[6:]}&mod={update.text[0:5]}').json()
+                                   f'voice.php?text={message}&mod={voice_mod}').json()
 
                     responce = post(request['result']['url'])
                     with open('.voice.mp3', 'wb') as file:
@@ -165,7 +172,7 @@ def main():
                         file='.voice.mp3',
                         message_id=message_id,
                         text='your voice is ready👍'
-                             f'\ncontent:\"{update.text[6:]}\"\nprogrammer: @khode_linux'
+                             f'\ncontent:\"{message}\"\nprogrammer: @khode_linux'
                     )
                 except TimeoutError:
                     client.send_text(
@@ -176,7 +183,8 @@ def main():
                 except:
                     client.send_text(
                         object_guid=update.object_guid,
-                        text='**The information entered is not correct**\n**Send** ``?`` **to display commands**',
+                        text='**The information entered is not correct**\n'
+                             '**Send** ``?`` **to display commands**',
                         message_id=message_id
                     )
 

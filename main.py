@@ -3,14 +3,12 @@ from random import randint
 from requests import post, get
 from json import dumps
 from os import system, uname
-from langdetect import detect
 
 groups = [
     '', # group one
     '', # group two
     # and...
 ]
-
 token = '295809:6517005fc9455'
 # personal token to perform translation operations
 # to get your personal token, visit one-api.ir
@@ -113,20 +111,15 @@ def main():
                         client.send_text(
                             object_guid=update.object_guid,
                             text='**please enter a text**',
-                            message_id=message_id)
+                            message_id=message_id
+                        )
                     else:
                         client.send_text(
                             object_guid=update.object_guid,
                             text='**please wait...**',
                             message_id=message_id
                         )
-                        if detect(update.text[4:]) == 'fa':
-                            responce = post(f'https://one-api.ir/translate/?token={token}&'
-                                            f'action=google&lang=en&q={update.text[4:]}').json()
-
-                            message = responce['result']
-
-                        request = get(f'https://haji-api.ir/prompts/?text={message}').json()
+                        request = get(f'https://haji-api.ir/prompts/?text={update.text[4:]}').json()
                         responce = get(request['result'][randint(0, 19)])
                         with open('.img.png', 'wb') as file:
                             file.write(responce.content)
@@ -136,7 +129,7 @@ def main():
                             file='.img.png',
                             message_id=message_id,
                             text='your image is ready👍'
-                                 f'\ncontent:\"{message}\"\nprogrammer: @khode_linux'
+                                 f'\ncontent:\"{update.text[4:]}\"\nprogrammer: @khode_linux'
                         )
                 except TimeoutError:
                     client.send_text(
@@ -144,40 +137,46 @@ def main():
                         text='TimeoutError',
                         message_id=message_id
                     )
+                except UnboundLocalError:
+                    client.send_text(
+                        object_guid=update.object_guid,
+                        text='**Please enter Persian text**',
+                        message_id=message_id
+                    )
 
 
             elif update.text.startswith('voice'):
                 message_id = update.message_id
                 try:
-                    if update.text == 'voice':
-                        client.send_text(
-                            object_guid=update.object_guid,
-                            text='**please enter a text**',
-                            message_id=message_id)
-                    else:
-                        client.send_text(
-                            object_guid=update.object_guid,
-                            text='**please wait...**',
-                            message_id=message_id
-                        )
-                        request = post('https://pyrubi.b80.xyz/'
-                                   f'voice.php?text={update.text[6:]}&mod=women').json()
+                    client.send_text(
+                        object_guid=update.object_guid,
+                        text='**please wait...**',
+                        message_id=message_id
+                    )
+                    request = post('https://pyrubi.b80.xyz/'
+                               f'voice.php?text={update.text[6:]}&mod={update.text[0:5]}').json()
 
-                        responce = post(request['result']['url'])
-                        with open('.voice.mp3', 'wb') as file:
-                            file.write(responce.content)
+                    responce = post(request['result']['url'])
+                    with open('.voice.mp3', 'wb') as file:
+                        file.write(responce.content)
 
-                        client.send_voice(
-                            object_guid=update.object_guid,
-                            file='.voice.mp3',
-                            message_id=message_id,
-                            text='your voice is ready👍'
-                                 f'\ncontent:\"{update.text[6:]}\"\nprogrammer: @khode_linux'
-                        )
+                    client.send_voice(
+                        object_guid=update.object_guid,
+                        file='.voice.mp3',
+                        message_id=message_id,
+                        text='your voice is ready👍'
+                             f'\ncontent:\"{update.text[6:]}\"\nprogrammer: @khode_linux'
+                    )
                 except TimeoutError:
                     client.send_text(
                         object_guid=update.object_guid,
                         text='TimeoutError',
+                        message_id=message_id
+                    )
+                except:
+                    client.send_text(
+                        object_guid=update.object_guid,
+                        text='**The information entered is not correct**\n**Send** ``?`` **to display commands**',
                         message_id=message_id
                     )
 
@@ -296,7 +295,7 @@ def main():
                 )
 
 
-            elif update.text == '?':
+            elif update.text == '?' or update.text == 'info' or update.text == 'help':
                 message_id = update.message_id
                 try:
                     client.send_text(
@@ -314,7 +313,8 @@ def main():
 - Example: ``logo text``
 
 🔊📢 Voice generation: 
-- Example: ``voice hi``
+- Example: ``voice woman hi``
+- Example: ``voice man hi``
 
 🌐🗣 Translate Persian to English: 
 - Example: ``-en text``

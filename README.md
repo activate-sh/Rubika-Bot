@@ -21,7 +21,7 @@ python -m venv venv # Create virtualenv named venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
-4. Enter your guid(s) in the groups list on line 7
+4. Enter your guid(s) in the `group` list on line 7
 5. run `python main.py`
 
 ### Note

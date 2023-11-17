@@ -3,6 +3,7 @@ from random import randint
 from requests import post, get
 from json import dumps
 from os import system, uname
+from re import findall
 
 admins = []
 
@@ -164,11 +165,13 @@ def main():
                     )
                     if 'man' in update.text:
                         voice_mod = 'man'
-                        message = update.text[6:9]
+                        message = update.text[10:]
                     elif 'woman' in update.text:
                         voice_mod = 'women'
-                        message = update.text[6:11]
+                        message = update.text[13:]
 
+                    print(voice_mod)
+                    print(message)
                     request = post('https://pyrubi.b80.xyz/'
                                    f'voice.php?text={message}&mod={voice_mod}').json()
 
@@ -360,7 +363,7 @@ def main():
                 group_name = results['group']['group_title']
                 client.send_text(
                     object_guid=update.object_guid,
-                    text=f'hello🖐🏻 welcome to {group_name} group 💞💖',
+                    text=f'hello🖐🏻 welcome to {group_name} 💞💖',
                     message_id=message_id
                 )
 

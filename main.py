@@ -3,6 +3,9 @@ from random import randint
 from requests import post, get
 from json import dumps
 from os import system, uname
+from re import findall
+
+admins = []
 
 groups = [
     '', # group one
@@ -24,6 +27,13 @@ clearPage()
 
 def main():
     client = Client(session='.myAccount')  # session for account
+    for guid in groups:
+        groups_name = client.get_chat_info(object_guid=guid)
+        groups_name = groups_name['group']['group_title']
+        client.send_text(
+            object_guid=guid,
+            text=f'the bot was successfully activated in chat {groups_name}'
+        )
     for update in client.on_message(filters=['Channel', 'User']):
         if update.object_guid in groups:
 
@@ -153,8 +163,17 @@ def main():
                         text='**please wait...**',
                         message_id=message_id
                     )
+                    if 'man' in update.text:
+                        voice_mod = 'man'
+                        message = update.text[10:]
+                    elif 'woman' in update.text:
+                        voice_mod = 'women'
+                        message = update.text[13:]
+
+                    print(voice_mod)
+                    print(message)
                     request = post('https://pyrubi.b80.xyz/'
-                               f'voice.php?text={update.text[6:]}&mod={update.text[0:5]}').json()
+                                   f'voice.php?text={message}&mod={voice_mod}').json()
 
                     responce = post(request['result']['url'])
                     with open('.voice.mp3', 'wb') as file:
@@ -165,7 +184,7 @@ def main():
                         file='.voice.mp3',
                         message_id=message_id,
                         text='your voice is ready👍'
-                             f'\ncontent:\"{update.text[6:]}\"\nprogrammer: @khode_linux'
+                             f'\ncontent:\"{message}\"\nprogrammer: @khode_linux'
                     )
                 except TimeoutError:
                     client.send_text(
@@ -176,7 +195,8 @@ def main():
                 except:
                     client.send_text(
                         object_guid=update.object_guid,
-                        text='**The information entered is not correct**\n**Send** ``?`` **to display commands**',
+                        text='**The information entered is not correct**\n'
+                             '**Send** ``?`` **to display commands**',
                         message_id=message_id
                     )
 
@@ -343,7 +363,7 @@ def main():
                 group_name = results['group']['group_title']
                 client.send_text(
                     object_guid=update.object_guid,
-                    text=f'hello🖐🏻 welcome to {group_name} group 💞💖',
+                    text=f'hello🖐🏻 welcome to {group_name} 💞💖',
                     message_id=message_id
                 )
 

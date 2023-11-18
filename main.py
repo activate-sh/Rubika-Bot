@@ -8,8 +8,7 @@ from re import findall
 admins = []
 
 groups = [
-    '', # group one
-    '', # group two
+    'g0DjNjc0eeaec8ae92ee9c9bfbdd3f95', # group one
     # and...
 ]
 token = '295809:6517005fc9455'
@@ -28,11 +27,11 @@ clearPage()
 def main():
     client = Client(session='.myAccount')  # session for account
     for guid in groups:
-        groups_name = client.get_chat_info(object_guid=guid)
-        groups_name = groups_name['group']['group_title']
+        group_name = client.get_chat_info(object_guid=guid)
+        group_name = group_name['group']['group_title']
         client.send_text(
             object_guid=guid,
-            text=f'the bot was successfully activated in chat {groups_name}'
+            text=f'the bot was successfully activated in chat {group_name}'
         )
     for update in client.on_message(filters=['Channel', 'User']):
         if update.object_guid in groups:

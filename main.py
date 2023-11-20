@@ -7,8 +7,8 @@ from re import findall
 
 admins = [] # No need to edit this list
 groups = [
-    '', # group one
-    '', # group two
+    'g0DjNjc0eeaec8ae92ee9c9bfbdd3f95', # group one
+    # '', # group two
     # and...
 ]
 
@@ -26,7 +26,8 @@ def clearPage() -> None:
 clearPage()
 
 def main():
-    client = Client(session='.myAccount')  # session for account
+    # client = Client(session='.myAccount')  # session for account
+    client = Client(auth='qydpzmikjizjnbjvuxebxltxsnzimdug', private='MIICXAIBAAKBgQCXkVy7QPbpZEggj7HZOLQxJlnTCJN7eDzRNLjV0+YwSRojSWLH\nRkVurnx7f1HsrfUjzsDNtZn744IZg8wz4H+xEYQgJvfSY3cBXtk7eWcyyfIZMks/\nSU+v4W7p/LyCprjL4qJvaj74bEHaTJANIccCN80OLNLD9qQm2eJ5axfiowIDAQAB\nAoGADwWUf+fpENSkOWXvJdediZ7YGYxTYadXD7z+nLgLAQ9zDGWXk/x+S9agoR91\n9SkrOfNMiewiaM6cSanAXAaMtnmOxOH+rSkCNHPeSghXqt/BWVl7/WoBUjjFEos5\nxgoDXFTu8QlvYgvg+wK+NhDsIPDkt1eJ7EBrGGrRMIsPF5ECQQDEEMYZ7oO5oXDf\n/H7cGohemc9pMbSED93sKAURngiJ9cYTtNSvK0fp0vjdDhUcaBfhNwF91SKoQKhx\nZlns2ihvAkEAxeZk0eh4X+uu5KZTGCXwx+4ebL3v9O+r7ygFg6kpHTSzw+vRoZmA\n7YRWtoi+A1cDDJvErePPTP7aUo98oRH7DQJANhq+4AcOuJoRUO4Xf9ueiCR/tPKv\ncsYCIpoElBD9IDz/VQ7QpioWZTL/09iAAN/EvzRzp+q57p4xHWH2LMMi5wJBAI46\nuIj4F9NwcoDYXO4FDpjSNUGX/KY/voUicVwfrnHUF8KecEpBJZ0OuLd1bYK+/W0J\nYoBLMwi2PTiK8Vpdrt0CQESLAjtNUTIQSJYIZ5Nh0Y8HljNI3Oi5Un+kQqD3ikQn\nXw761SkmyMOUgB8QYIL3lrEdDMBAfeQxHNPVL+8WA0A=\n-----END RSA PRIVATE KEY-----')
     for guid in groups:
         group_name = client.get_chat_info(object_guid=guid)
         group_name = group_name['group']['group_title']

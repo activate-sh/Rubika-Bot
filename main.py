@@ -104,7 +104,7 @@ def main():
                                 file='.img.png',
                                 message_id=message_id,
                                 text='your logo is ready👍'
-                                     f'\ncontent:\"{update.text[5:]}\"\nprogrammer: @khode_linux'
+                                     f'\ncontent:\"{update.text[5:]}\"\nprogrammer: @activate_sh'
                             )
                     except TimeoutError:
                         client.send_text(
@@ -139,7 +139,7 @@ def main():
                                 file='.img.png',
                                 message_id=message_id,
                                 text='your image is ready👍'
-                                     f'\ncontent:\"{update.text[4:]}\"\nprogrammer: @khode_linux'
+                                     f'\ncontent:\"{update.text[4:]}\"\nprogrammer: @activate_sh'
                             )
                     except TimeoutError:
                         client.send_text(
@@ -175,7 +175,7 @@ def main():
                             file='.voice.mp3',
                             message_id=message_id,
                             text='your voice is ready👍'
-                                 f'\ncontent:\"{update.text[6:]}\"\nprogrammer: @khode_linux'
+                                 f'\ncontent:\"{update.text[6:]}\"\nprogrammer: @activate_sh'
                         )
                     except TimeoutError:
                         client.send_text(

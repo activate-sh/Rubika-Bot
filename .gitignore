@@ -1,5 +1,9 @@
 venv/
+
+
+session
+
+
 .idea/
 .img.png
 .voice.mp3
-.myAccount.pyrubi

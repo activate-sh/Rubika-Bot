@@ -2,36 +2,26 @@ from pyrubi import Client
 from random import randint
 from requests import post, get
 from json import dumps
-from os import system, uname
 
-admins = [] # No need to edit this list
 groups = [
     '', # group one
     '', # group two
-    # and...
+    # and..
 ]
 
 token = '295809:6517005fc9455'
 # personal token to perform translation operations
 # to get your personal token, visit one-api.ir
 
-def clearPage() -> None:
-    if uname()[0] == 'Linux':
-        system('clear')
-    else:
-        system('cls')
-
-
-clearPage()
 
 def main():
-    client = Client(session='.myAccount')  # session for account
+    client = Client(session='session')  # session for account
     for guid in groups:
         group_name = client.get_chat_info(object_guid=guid)
         group_name = group_name['group']['group_title']
         client.send_text(
             object_guid=guid,
-            text=f'the bot was successfully activated in chat {group_name}'
+            text=f'The bot was successfully activated in chat {group_name}'
         )
     for update in client.on_message(filters=['Channel', 'User']):
         if update.object_guid in groups:
@@ -43,12 +33,12 @@ def main():
                         if update.text == '+':
                             client.send_text(
                                 object_guid=update.object_guid,
-                                text='**please enter a text**',
+                                text='please enter a text',
                                 message_id=message_id)
                         else:
                             client.send_text(
                                 object_guid=update.object_guid,
-                                text='**please wait...**',
+                                text='please wait...',
                                 message_id=message_id
                             )
                             url = 'https://chatgpt-api3.onrender.com'
@@ -78,12 +68,12 @@ def main():
                         if update.text == 'logo':
                             client.send_text(
                                 object_guid=update.object_guid,
-                                text='**please enter a text**',
+                                text='please enter a text',
                                 message_id=message_id)
                         else:
                             client.send_text(
                                 object_guid=update.object_guid,
-                                text='**please wait...**',
+                                text='please wait...',
                                 message_id=message_id
                             )
                             request = post('https://pyrubi.b80.xyz'
@@ -93,7 +83,7 @@ def main():
                             except IndexError:
                                 client.send_text(
                                     object_guid=update.object_guid,
-                                    text='**IndexError**',
+                                    text='IndexError',
                                     message_id=message_id
                                 )
                             with open('.img.png', 'wb') as file:
@@ -120,13 +110,13 @@ def main():
                         if update.text == 'img':
                             client.send_text(
                                 object_guid=update.object_guid,
-                                text='**please enter a text**',
+                                text='please enter a text',
                                 message_id=message_id
                             )
                         else:
                             client.send_text(
                                 object_guid=update.object_guid,
-                                text='**please wait...**',
+                                text='please wait...',
                                 message_id=message_id
                             )
                             request = get(f'https://haji-api.ir/prompts/?text={update.text[4:]}').json()
@@ -150,7 +140,7 @@ def main():
                     except UnboundLocalError:
                         client.send_text(
                             object_guid=update.object_guid,
-                            text='**Please enter Persian text**',
+                            text='Please enter Persian text',
                             message_id=message_id
                         )
 
@@ -160,11 +150,18 @@ def main():
                     try:
                         client.send_text(
                             object_guid=update.object_guid,
-                            text='**please wait...**',
+                            text='please wait...',
                             message_id=message_id
                         )
+                        if update.text[6:9] == 'man':
+                            voice_mod = 'man'
+                            message = update.text.split('man')[-1].strip()
+                        else:
+                            voice_mod = 'women'
+                            message = update.text.split('woman')[-1].strip()
+
                         request = post('https://pyrubi.b80.xyz/'
-                                       f'voice.php?text={update.text[6:]}&mod=women').json()
+                                       f'voice.php?text={message}&mod={voice_mod}').json()
 
                         responce = post(request['result']['url'])
                         with open('.voice.mp3', 'wb') as file:
@@ -175,7 +172,7 @@ def main():
                             file='.voice.mp3',
                             message_id=message_id,
                             text='your voice is ready👍'
-                                 f'\ncontent:\"{update.text[6:]}\"\nprogrammer: @activate_sh'
+                                 f'\ncontent:\"{message}\"\nprogrammer: @activate_sh'
                         )
                     except TimeoutError:
                         client.send_text(
@@ -186,8 +183,8 @@ def main():
                     except:
                         client.send_text(
                             object_guid=update.object_guid,
-                            text='**The information entered is not correct**\n'
-                                 '**Send** ``?`` **to display commands**',
+                            text='The information entered is not correct\n'
+                                 'Send ``?`` to display commands',
                             message_id=message_id
                         )
 
@@ -197,13 +194,13 @@ def main():
                     try:
                         client.send_text(
                             object_guid=update.object_guid,
-                            text='**please wait...**',
+                            text='please wait...',
                             message_id=message_id
                         )
                         if update.text == 'font':
                             client.send_text(
                                 object_guid=update.object_guid,
-                                text='**please enter a text**',
+                                text='please enter a text',
                                 message_id=message_id
                             )
                         else:
@@ -225,7 +222,7 @@ def main():
                     except TimeoutError:
                         client.send_text(
                             object_guid=update.object_guid,
-                            text='**TimeoutError**',
+                            text='TimeoutError',
                             message_id=message_id
                         )
 
@@ -236,13 +233,13 @@ def main():
                         if update.text == '-':
                             client.send_text(
                                 object_guid=update.object_guid,
-                                text='**please enter a text**',
+                                text='please enter a text',
                                 message_id=message_id
                             )
                         else:
                             client.send_text(
                                 object_guid=update.object_guid,
-                                text='**please wait...**',
+                                text='please wait...',
                                 message_id=message_id
                             )
                             responce = post('https://one-api.ir/translate'
@@ -252,13 +249,13 @@ def main():
                             responce = responce['result']
                             client.send_text(
                                 object_guid=update.object_guid,
-                                text=f'**your text has been translated:**\n\n``{responce}``',
+                                text=f'your text has been translated:\n\n``{responce}``',
                                 message_id=message_id
                             )
                     except TimeoutError:
                         client.send_text(
                             object_guid=update.object_guid,
-                            text='**TimeoutError**',
+                            text='TimeoutError',
                             message_id=message_id
                         )
 
@@ -268,13 +265,13 @@ def main():
                     try:
                         client.send_text(
                             object_guid=update.object_guid,
-                            text='**the bot is active ✅**',
+                            text='The bot is active ✅',
                             message_id=message_id
                         )
                     except TimeoutError:
                         client.send_text(
                             object_guid=update.object_guid,
-                            text='**TimeoutError**',
+                            text='TimeoutError',
                             message_id=message_id
                         )
 
@@ -291,7 +288,7 @@ def main():
                     except TimeoutError:
                         client.send_text(
                             object_guid=update.object_guid,
-                            text='**TimeoutError**',
+                            text='TimeoutError',
                             message_id=message_id
                         )
 
@@ -342,7 +339,7 @@ def main():
                     except TimeoutError:
                         client.send_text(
                             object_guid=update.object_guid,
-                            text='**TimeoutError**',
+                            text='TimeoutError',
                             message_id=message_id
                         )
 
@@ -365,6 +362,7 @@ def main():
                         text='by 👋🏻👋🏻👋🏻',
                         message_id=message_id
                     )
+
 
             except:
                 pass

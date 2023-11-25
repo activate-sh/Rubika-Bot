@@ -4,7 +4,9 @@ from requests import post, get
 from json import dumps
 
 groups = [
-    'g0Djvsm032dc4567a13581058b07eaf1',
+    '', # group one
+    '', # group two
+    # and...
 ]
 
 token = '295809:6517005fc9455'

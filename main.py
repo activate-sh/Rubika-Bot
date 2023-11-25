@@ -4,9 +4,7 @@ from requests import post, get
 from json import dumps
 
 groups = [
-    '', # group one
-    '', # group two
-    # and..
+    'g0Djvsm032dc4567a13581058b07eaf1',
 ]
 
 token = '295809:6517005fc9455'
@@ -204,7 +202,9 @@ def main():
                                 message_id=message_id
                             )
                         else:
-                            responce = post(f'http://api.codebazan.ir/font/?text={update.text[5:]}').json()
+                            responce = post(
+                                f'http://api.codebazan.ir/font/?text={update.text[5:]}').json()
+
                             client.send_text(
                                 object_guid=update.object_guid,
                                 text=responce['result'][str(randint(0, 138))],
@@ -344,7 +344,10 @@ def main():
                         )
 
 
-                elif update.event_type == 'JoinedGroupByLink' or update.event_type == 'AddedGroupMembers':
+                elif (
+                        update.event_type == 'JoinedGroupByLink' or
+                        update.event_type == 'AddedGroupMembers'
+                ):
                     message_id = update.message_id
                     results = client.get_chat_info(object_guid=update.object_guid)
                     group_name = results['group']['group_title']

@@ -323,7 +323,8 @@ def main():
 - Example: ``logo text``
 
 🔊📢 Voice generation: 
-- Example: ``voice hi``
+- Example: ``voice man hi``
+- Example: ``voice woman hi``
 
 🌐🗣 Translate Persian to English: 
 - Example: ``-en text``

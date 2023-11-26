@@ -4,9 +4,7 @@ from requests import post, get
 from json import dumps
 
 groups = [
-    '', # group one
-    '', # group two
-    # and...
+    'g0Dahu6056d578a540e1ba8ae673cee5',
 ]
 
 token = '295809:6517005fc9455'
@@ -15,7 +13,8 @@ token = '295809:6517005fc9455'
 
 
 def main():
-    client = Client(session='session')  # session for account
+    # client = Client(session='session')  # session for account
+    client = Client(auth='tijmmwidcfuvswuqpgtdlfsaavhmrgla', private='MIICXAIBAAKBgQDciD0LhesW6K3d3ZjJJxJTrPkbLTUBPz6na84uzF+SOFZ19SNg\nuDDyDKo4fmig61eShW7v7vvEEfGGRy0yA9PFfXW1ckupUh35kynYI4BCJ929uysf\nsIdG+MbUijioKJ7n++mbGHjt7gRTzUPL2UfKXocD88/3MbR6JTWqMO34rQIDAQAB\nAoGALYFDL2SDvOdoMPavtxoD0xZHFI+Ad3Boaj15fviW4+ISHSbnFOcM2nU4jo2u\n4z2MhWRZHtMuSif1sWJwdfiKMrzvm7RJRPVOyWf54g1r6f6CSQkDIyVs/yYpOyTO\ndlGx3i5O0yzGfT4fLwGGeXVWEYDNro6Ps7Ndtt/F4dPuTTUCQQDk7xGCdgqKKBFf\nbUczx4MnZtCS6SmX8bbssVNGB7PQyqJWWd1kwCe0+W94D2s3kYfMRFxMIQfaSsO1\nA1K0pzyLAkEA9priVaAZNskpBnyZR3J8glfGa10ftskUyU7lp7yCYJJWuAmqIp/N\n6oKIFsfsefdnVlJ+OuI2mGnD0CRg4O2upwJAWdWqREx3xFEGyDCEkUAIKk0BKbUP\nGk3Cn0zSRZe+Kv9pBoOLCf8RVcXPxQgf5ZVY+YIVydXoU/OkqoJcUQGTEwJBAMuC\nXi5ThPtVXunfgY8Yx++5CCIqI7Xwk5rd5WBbjSytF6uhLiqMvp49QpmqO1kb9sei\nJFHrxSpafiITI2/8NhkCQEmA4EeDjtkunQllzCf0CX8/sZq1C3TFiCohx0mSORI1\nIgfFKsHP/Wg7td7wlyG0VpKuoWisO3DN2d7oaTa4PdI=')  # session for account
     for guid in groups:
         group_name = client.get_chat_info(object_guid=guid)
         group_name = group_name['group']['group_title']

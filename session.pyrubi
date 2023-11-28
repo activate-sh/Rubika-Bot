@@ -1,6 +1,6 @@
 {
-    "auth": "tijmmwidcfuvswuqpgtdlfsaavhmrgla",
-    "private_key": "-----BEGIN RSA PRIVATE KEY-----\nMIICXAIBAAKBgQDciD0LhesW6K3d3ZjJJxJTrPkbLTUBPz6na84uzF+SOFZ19SNg\nuDDyDKo4fmig61eShW7v7vvEEfGGRy0yA9PFfXW1ckupUh35kynYI4BCJ929uysf\nsIdG+MbUijioKJ7n++mbGHjt7gRTzUPL2UfKXocD88/3MbR6JTWqMO34rQIDAQAB\nAoGALYFDL2SDvOdoMPavtxoD0xZHFI+Ad3Boaj15fviW4+ISHSbnFOcM2nU4jo2u\n4z2MhWRZHtMuSif1sWJwdfiKMrzvm7RJRPVOyWf54g1r6f6CSQkDIyVs/yYpOyTO\ndlGx3i5O0yzGfT4fLwGGeXVWEYDNro6Ps7Ndtt/F4dPuTTUCQQDk7xGCdgqKKBFf\nbUczx4MnZtCS6SmX8bbssVNGB7PQyqJWWd1kwCe0+W94D2s3kYfMRFxMIQfaSsO1\nA1K0pzyLAkEA9priVaAZNskpBnyZR3J8glfGa10ftskUyU7lp7yCYJJWuAmqIp/N\n6oKIFsfsefdnVlJ+OuI2mGnD0CRg4O2upwJAWdWqREx3xFEGyDCEkUAIKk0BKbUP\nGk3Cn0zSRZe+Kv9pBoOLCf8RVcXPxQgf5ZVY+YIVydXoU/OkqoJcUQGTEwJBAMuC\nXi5ThPtVXunfgY8Yx++5CCIqI7Xwk5rd5WBbjSytF6uhLiqMvp49QpmqO1kb9sei\nJFHrxSpafiITI2/8NhkCQEmA4EeDjtkunQllzCf0CX8/sZq1C3TFiCohx0mSORI1\nIgfFKsHP/Wg7td7wlyG0VpKuoWisO3DN2d7oaTa4PdI=\n-----END RSA PRIVATE KEY-----",
+    "auth": "mbezkzljpbrkzaxvdwcvnyuirelpqkzy",
+    "private_key": "-----BEGIN RSA PRIVATE KEY-----\nMIICXAIBAAKBgQCtPdKJzZQogEz4AKwVGXeap1xl7sb4NSkj50BkQQYkrLCY9B1B\n2pOjb+mzbe0XkVvesHnqZFS4dhhJKxXWZlCNfStVu8RvPhmuwGrfdmcQ415/oVP9\nnhONUeCdsEZeKwG3HL1MyEzcSH6390IY8J1hQRQDKEqHU5BnvhMdQq+WAQIDAQAB\nAoGAFITTRDeZcf+aPjCEMT6SNDrY3ojcv6a6P/KipY0vD1Z11zPoqDVdkbjOXw5o\ny8cPcM2JrxmhkDSKlVX5UOrO5PUGZ4DaTaPWXVPGfho0HbRVPZj/t/dKFv+kLBEQ\nnmWU9aSKlXDe6x5oJJ3aZG/z3qOF5vkQr0kqKTuLE3Vf4s0CQQC8A7oNWaT104gS\nt51M5iy7+y0CQIzcAzUEB+WSZsSmKILSRxzeAOyvqOYQvr+hbVBtWtr0Zs/kbn7G\nEEZhQsSdAkEA6+KSUJIA94v5C7++1kd3tWkUftPSrQES6h4FJGfXg9Sv036wOdU1\nMvesWkoeZ1gEpPj7Yj8CrMx+sRwxWtzvtQJAUh7Kl+Qs0haXm51JfnoW1fCKoy4w\nmDRqZp1QX5a1k+Gj6laXPDxpJPx/qJa4Orj1ZR5G/nMdoKfGhZo8M2UnXQJAV+tU\nE7nHqHzAb7OhQqbSpIgs/nSfQqJy1VYpHn+h4V4lxtOihXvFX2DXGbQkjupMmNzA\nfcb0jUmPMx5J+w78PQJBAIXWU4RVy17AD3nlWRdBsb5D0nDs7lCoa2iut8fQsh1i\nAkPQfgNfhG2s7oydW+OY3fAZ/oIlm3b396JnUPTPrH4=\n-----END RSA PRIVATE KEY-----",
     "user": {
         "user_guid": "u0GNZN9063f2b11769fb00d37f92dccc",
         "first_name": "Bot",
@@ -12,13 +12,13 @@
             "dc_id": "849",
             "access_hash_rec": "7061978863683366577841800622442023110123"
         },
-        "last_online": 1700575057,
-        "bio": "Created by @khode_linux\u200c\u200c\u200c\u200c\u200c\u200c\u200c",
+        "last_online": 1701000328,
+        "bio": "Created by @activate_sh",
         "is_deleted": false,
         "is_verified": false,
         "online_time": {
             "type": "Exact",
-            "exact_time": 1700575057
+            "exact_time": 1701000328
         }
     }
 }

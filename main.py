@@ -355,7 +355,7 @@ def main():
                     group_name = results['group']['group_title']
                     client.send_text(
                         object_guid=update.object_guid,
-                        text=f'hello🖐🏻 welcome to {group_name} 💞💖',
+                        text=f'hello🖐🏻 welcome to {group_name}',
                         message_id=message_id
                     )
 
@@ -367,7 +367,6 @@ def main():
                         text='by 👋🏻👋🏻👋🏻',
                         message_id=message_id
                     )
-
 
             except:
                 pass

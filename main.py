@@ -3,7 +3,11 @@ from random import randint
 from requests import post, get
 from json import dumps
 
-groups = ['g0Dahu6056d578a540e1ba8ae673cee5']
+groups = [
+    '', # group one
+    '', # group two
+    # and...
+]
 
 token = '295809:6517005fc9455'
 # personal token to perform translation operations
@@ -11,8 +15,7 @@ token = '295809:6517005fc9455'
 
 
 def main():
-    # client = Client(session='session')  # session for account
-    client = Client(auth='mbezkzljpbrkzaxvdwcvnyuirelpqkzy', private='MIICXAIBAAKBgQCtPdKJzZQogEz4AKwVGXeap1xl7sb4NSkj50BkQQYkrLCY9B1B\n2pOjb+mzbe0XkVvesHnqZFS4dhhJKxXWZlCNfStVu8RvPhmuwGrfdmcQ415/oVP9\nnhONUeCdsEZeKwG3HL1MyEzcSH6390IY8J1hQRQDKEqHU5BnvhMdQq+WAQIDAQAB\nAoGAFITTRDeZcf+aPjCEMT6SNDrY3ojcv6a6P/KipY0vD1Z11zPoqDVdkbjOXw5o\ny8cPcM2JrxmhkDSKlVX5UOrO5PUGZ4DaTaPWXVPGfho0HbRVPZj/t/dKFv+kLBEQ\nnmWU9aSKlXDe6x5oJJ3aZG/z3qOF5vkQr0kqKTuLE3Vf4s0CQQC8A7oNWaT104gS\nt51M5iy7+y0CQIzcAzUEB+WSZsSmKILSRxzeAOyvqOYQvr+hbVBtWtr0Zs/kbn7G\nEEZhQsSdAkEA6+KSUJIA94v5C7++1kd3tWkUftPSrQES6h4FJGfXg9Sv036wOdU1\nMvesWkoeZ1gEpPj7Yj8CrMx+sRwxWtzvtQJAUh7Kl+Qs0haXm51JfnoW1fCKoy4w\nmDRqZp1QX5a1k+Gj6laXPDxpJPx/qJa4Orj1ZR5G/nMdoKfGhZo8M2UnXQJAV+tU\nE7nHqHzAb7OhQqbSpIgs/nSfQqJy1VYpHn+h4V4lxtOihXvFX2DXGbQkjupMmNzA\nfcb0jUmPMx5J+w78PQJBAIXWU4RVy17AD3nlWRdBsb5D0nDs7lCoa2iut8fQsh1i\nAkPQfgNfhG2s7oydW+OY3fAZ/oIlm3b396JnUPTPrH4=')
+    client = Client(session='session')  # session for account
     for guid in groups:
         group_name = client.get_chat_info(object_guid=guid)
         group_name = group_name['group']['group_title']

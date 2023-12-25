@@ -1,4 +1,4 @@
-# rubika-bot
+# Rubika ‌‌Bot
 **Rubika messenger artificial intelligence robot**
 
 ## Capabilities
